@@ -1,3 +1,4 @@
+using Photon.Pun;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,6 +9,7 @@ public class PlayerHands : MonoBehaviour
     public int SelectedWeapon = 0;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     [SerializeField] private InputActionReference scroll;
+    [SerializeField] private PhotonView view;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -19,30 +21,33 @@ public class PlayerHands : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 mousePos = mainCamera.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-        mousePos.z = 0f;
+        if (view.IsMine)
+        {
+            Vector3 mousePos = mainCamera.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+            mousePos.z = 0f;
 
-        // Direction from player to mouse
-        Vector3 dir = mousePos - player.position;
+            // Direction from player to mouse
+            Vector3 dir = mousePos - player.position;
 
-        // Determine if player should face left or right
-        if (dir.x >= 0)
-            player.localEulerAngles = Vector3.zero; // facing right
-        else
-            player.localEulerAngles = new Vector3(0, 180, 0); // facing left
+            // Determine if player should face left or right
+            if (dir.x >= 0)
+                player.localEulerAngles = Vector3.zero; // facing right
+            else
+                player.localEulerAngles = new Vector3(0, 180, 0); // facing left
 
-        // Gun local direction relative to player
-        Vector3 localDir = player.InverseTransformPoint(mousePos) - player.InverseTransformPoint(player.position);
+            // Gun local direction relative to player
+            Vector3 localDir = player.InverseTransformPoint(mousePos) - player.InverseTransformPoint(player.position);
 
-        // Angle in local space
-        float angle = Mathf.Atan2(localDir.y, localDir.x) * Mathf.Rad2Deg;
+            // Angle in local space
+            float angle = Mathf.Atan2(localDir.y, localDir.x) * Mathf.Rad2Deg;
 
-        // Clamp angle between -90 and 90
-        angle = Mathf.Clamp(angle, -90f, 90f);
+            // Clamp angle between -90 and 90
+            angle = Mathf.Clamp(angle, -90f, 90f);
 
-        // Apply rotation
-        transform.localEulerAngles = new Vector3(0, 0, angle);
-        SwitchWeapons();
+            // Apply rotation
+            transform.localEulerAngles = new Vector3(0, 0, angle);
+            SwitchWeapons();
+        }
     }
 
     void SwitchWeapons()

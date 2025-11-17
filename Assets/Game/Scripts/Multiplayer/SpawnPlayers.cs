@@ -4,7 +4,7 @@ using System.Numerics;
 using Vector2 = UnityEngine.Vector2;
 using Quaternion = UnityEngine.Quaternion;
 
-public class SpawnPlayers : MonoBehaviour
+public class SpawnPlayers : MonoBehaviourPun
 {
 
     public GameObject playerPrefab;
@@ -17,6 +17,7 @@ public class SpawnPlayers : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+
         Vector2 spawn = new Vector2(Random.Range(minX, maxX), Random.Range(minY, maxY));
         PhotonNetwork.Instantiate(playerPrefab.name, spawn, Quaternion.identity);
     }
