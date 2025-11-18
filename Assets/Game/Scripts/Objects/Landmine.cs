@@ -9,10 +9,10 @@ public class Landmine : MonoBehaviour
         view = GetComponent<PhotonView>();
     }
 
-    [PunRPC]
+
     private void Explode()
     {
-        PhotonNetwork.Destroy(gameObject);
+        Destroy(gameObject);
     }
 
     private void OnTriggerEnter2D(Collider2D col)
@@ -21,7 +21,7 @@ public class Landmine : MonoBehaviour
         if (dmg != null)
         {
             dmg.TakeDamage(1);
-            view.RPC("Explode", RpcTarget.All);
+            Explode();
         }
 
     }
