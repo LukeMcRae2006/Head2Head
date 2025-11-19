@@ -10,10 +10,12 @@ public class Bullet : MonoBehaviour
     [SerializeField] private float amountOfCollisionsTillDeath = 1f;
 
     [SerializeField] private LayerMask playerLayer;
+    private GameManager manager;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        manager = FindFirstObjectByType<GameManager>();
 
         rb.AddForce(transform.right * bulletSpeed, ForceMode2D.Impulse);
     }
@@ -27,7 +29,7 @@ public class Bullet : MonoBehaviour
         if (hit.collider != null)
         {
             //this means that the bullet is goingg to hit the player
-            GameManager.StartSlowmo();
+            manager.StartSlowmo();
         }
     }
 

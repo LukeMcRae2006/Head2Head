@@ -56,17 +56,11 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     }
 
-    public static void StartSlowmo()
+    public void StartSlowmo()
     {
-        if (timeUntilStopSlowmo > 0)
-        {
-            Time.timeScale = 0.1f;
-            timeUntilStopSlowmo -= Time.deltaTime;
-        }
-        else
-        {
-            StopSlowmo();
-        }
+
+        Time.timeScale = 0.1f;
+        StartCoroutine(countDownSlomow());
 
     }
 
@@ -83,6 +77,12 @@ public class GameManager : MonoBehaviourPunCallbacks
     {
         Time.timeScale = 1f;
         timeUntilStopSlowmo = 3f;
+    }
+
+    static IEnumerator countDownSlomow()
+    {
+        yield return new WaitForSeconds(1f);
+        StopSlowmo();
     }
 
 
