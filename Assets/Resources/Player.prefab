@@ -146,6 +146,7 @@ MonoBehaviour:
   - {fileID: 8873571801717565739}
   - {fileID: 2441212415773747352}
   - {fileID: 2977162372217083253}
+  leaveInput: {fileID: 1683968591529182973, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
 --- !u!114 &3448720154738017912
 MonoBehaviour:
   m_ObjectHideFlags: 0
