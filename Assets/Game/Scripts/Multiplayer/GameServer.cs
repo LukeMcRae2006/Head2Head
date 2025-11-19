@@ -12,4 +12,10 @@ public class GameServer : MonoBehaviourPunCallbacks
         PhotonNetwork.LoadLevel("Lobby");
 
     }
+
+    public override void OnLeftRoom()
+    {
+        base.OnLeftRoom();
+        PhotonNetwork.LoadLevel("Lobby");
+    }
 }

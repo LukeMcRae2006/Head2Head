@@ -72,8 +72,10 @@ public class PlayerController : MonoBehaviour, IDamageable
 
         if (leaveInput.action.IsPressed())
         {
-            PhotonNetwork.LoadLevel("Lobby");
-            PhotonNetwork.Disconnect();
+            if (view.IsMine)
+            {
+                PhotonNetwork.LeaveRoom();
+            }
         }
 
 
@@ -90,9 +92,11 @@ public class PlayerController : MonoBehaviour, IDamageable
         {
             limbs[i].SetActive(false);
         }
-        PhotonNetwork.LoadLevel("Lobby");
-        PhotonNetwork.Disconnect();
 
+        if (view.IsMine)
+        {
+            PhotonNetwork.LeaveRoom();
+        }
 
 
 
