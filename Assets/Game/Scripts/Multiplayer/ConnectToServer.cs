@@ -21,10 +21,5 @@ public class ConnectToServer : MonoBehaviourPunCallbacks
         SceneManager.LoadScene("Lobby");
     }
 
-    public override void OnDisconnected(DisconnectCause cause)
-    {
-        base.OnDisconnected(cause);
-        PhotonNetwork.LoadLevel("Lobby");
 
-    }
 }

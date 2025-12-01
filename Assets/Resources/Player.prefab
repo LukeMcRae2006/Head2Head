@@ -141,6 +141,8 @@ MonoBehaviour:
   gameOverText: {fileID: 0}
   bloodEffect: {fileID: 829756312403484310, guid: 87375aca519d9cd4eb15fe2dbbc524a6, type: 3}
   playerState: 0
+  Die: {fileID: 8300000, guid: 026d54b67c39ef948ad6df24c34cd9ee, type: 3}
+  Win: {fileID: 8300000, guid: 7b341691462ee3b439b2d4af7ee9a62f, type: 3}
   limbs:
   - {fileID: 2775899827817220712}
   - {fileID: 8873571801717565739}

@@ -25,7 +25,8 @@ public class PlayerController : MonoBehaviour, IDamageable
     //player state
     [SerializeField] private PlayerState playerState = PlayerState.roaming;
 
-
+    [SerializeField] private AudioClip Die;
+    [SerializeField] private AudioClip Win;
     public GameObject[] limbs; //limbs are like the head and stuff
 
     public InputActionReference leaveInput;
@@ -91,6 +92,9 @@ public class PlayerController : MonoBehaviour, IDamageable
         for (int i = 0; i < limbs.Length; i++)
         {
             limbs[i].SetActive(false);
+            AudioSource.PlayClipAtPoint(Win, transform.position);
+
+            AudioSource.PlayClipAtPoint(Die, transform.position);
         }
 
         if (view.IsMine)
