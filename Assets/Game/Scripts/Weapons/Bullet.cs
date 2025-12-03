@@ -31,7 +31,7 @@ public class Bullet : MonoBehaviour
     {
         if (amountOfCollisionsTillDeath <= 0)
         {
-            PhotonNetwork.Destroy(gameObject);
+            Destroy(gameObject);
         }
         amountOfCollisionsTillDeath -= 1;
 
