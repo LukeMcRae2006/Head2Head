@@ -8,6 +8,8 @@ public class LevelGenerator : MonoBehaviour
 
     public GameObject[] levels;
 
+    private GameObject level;
+
     private void Start()
     {
 
@@ -17,13 +19,12 @@ public class LevelGenerator : MonoBehaviour
     [PunRPC]
     public void ChangeLevel()
     {
-        //check if there are any levels active rn
-        GameObject currentLevel = GameObject.FindGameObjectWithTag("Level");
-        if (currentLevel != null)
+        if (level == null)
         {
-            currentLevel.SetActive(false);
+            //check if there are any levels active rn
+            level = levels[Random.Range(0, levels.Length)];
+            level.SetActive(true);
         }
-        levels[Random.Range(0, levels.Length)].SetActive(true);
     }
 
 }
