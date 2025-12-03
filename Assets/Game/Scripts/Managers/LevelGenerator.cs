@@ -19,12 +19,15 @@ public class LevelGenerator : MonoBehaviour
     [PunRPC]
     public void ChangeLevel()
     {
+        level = GameObject.FindGameObjectWithTag("Level");
         if (level == null)
         {
-            //check if there are any levels active rn
+            //this means there is no level yet
             level = levels[Random.Range(0, levels.Length)];
             level.SetActive(true);
         }
+        //check if there are any levels active rn
+
     }
 
 }

@@ -14,6 +14,7 @@ public class SpawnPlayers : MonoBehaviourPun
     public float minY;
     public float maxY;
 
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
