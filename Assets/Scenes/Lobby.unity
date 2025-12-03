@@ -10909,8 +10909,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -472.32202, y: 404.87048}
-  m_SizeDelta: {x: -1016.564, y: -809.7409}
+  m_AnchoredPosition: {x: -420.7972, y: 404.87048}
+  m_SizeDelta: {x: -1119.6144, y: -809.7409}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &939534338
 MonoBehaviour:
@@ -10932,7 +10932,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Made in CITA 212, 12,8,2025
+  m_text: Made in CITA 212, 12,8,2025, Luke McRae, John Mamrak
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b821f6f05b90a044ebc227cbbef87ab8, type: 2}
   m_sharedMaterial: {fileID: -3746989849276097184, guid: b821f6f05b90a044ebc227cbbef87ab8, type: 2}

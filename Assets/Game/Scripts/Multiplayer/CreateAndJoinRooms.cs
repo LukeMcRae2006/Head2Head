@@ -10,12 +10,20 @@ public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
 
     public void CreateRoom()
     {
+        if (PhotonNetwork.InRoom)
+        {
+            PhotonNetwork.LeaveRoom();
+        }
         PhotonNetwork.CreateRoom(createInput.text);
 
     }
 
     public void JoinRoom()
     {
+        if (PhotonNetwork.InRoom)
+        {
+            PhotonNetwork.LeaveRoom();
+        }
         PhotonNetwork.JoinRoom(joinInput.text);
     }
 
@@ -24,5 +32,5 @@ public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
         PhotonNetwork.LoadLevel("Game");
     }
 
-    
+
 }

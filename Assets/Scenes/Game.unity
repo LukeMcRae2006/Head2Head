@@ -3724,6 +3724,7 @@ GameObject:
   m_Component:
   - component: {fileID: 439042008}
   - component: {fileID: 439042007}
+  - component: {fileID: 439042010}
   - component: {fileID: 439042009}
   m_Layer: 0
   m_Name: LevelGenerator
@@ -3774,10 +3775,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36b593e17ef35244a958da07df930163, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelGenerator
-  levels:
+  landLevels:
   - {fileID: 2129996311}
   - {fileID: 169532679}
   - {fileID: 1981154302}
+--- !u!114 &439042010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 439042006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: PhotonUnityNetworking::Photon.Pun.PhotonView
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 0
+  ObservedComponents:
+  - {fileID: 0}
+  sceneViewId: 55
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -13725,11 +13749,11 @@ Transform:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 439042008}
   - {fileID: 1897404661}
   - {fileID: 1856743488}
   - {fileID: 519420032}
   - {fileID: 134305928}
   - {fileID: 1953952575}
-  - {fileID: 439042008}
   - {fileID: 831000738}
   - {fileID: 1731515874}

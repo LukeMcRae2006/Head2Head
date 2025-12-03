@@ -80,13 +80,22 @@ public class PlayerController : MonoBehaviour, IDamageable
         boxCollider.enabled = false;
         //disable all renderers
         PhotonNetwork.Instantiate(bloodEffect.name, transform.position, transform.rotation);
+
+        //ADD PARTICLE EFFECT
+        //PhotonNetwork.Instantiate(bloodEffect.name, transform.position, transform.rotation); Create a gameobject for effect, put game object into resoufrces folder, and just change bloodEffect to gameobjet name
+
+        AudioSource.PlayClipAtPoint(Win, transform.position);
+
+        AudioSource.PlayClipAtPoint(Die, transform.position);
+
         for (int i = 0; i < limbs.Length; i++)
         {
             limbs[i].SetActive(false);
-            AudioSource.PlayClipAtPoint(Win, transform.position);
 
-            AudioSource.PlayClipAtPoint(Die, transform.position);
+
+
         }
+        PhotonNetwork.LeaveRoom();
         PhotonNetwork.LoadLevel("Lobby");
 
 

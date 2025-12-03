@@ -1,33 +1,28 @@
-using System.Collections.Generic;
-using Photon.Pun;
-using Unity.VisualScripting;
 using UnityEngine;
+using Photon.Pun;
+using Photon.Realtime;
 
-public class LevelGenerator : MonoBehaviour
+public class LevelGenerator : MonoBehaviourPun
 {
+    public GameObject[] landLevels;
 
-    public GameObject[] levels;
-
-    private GameObject level;
-
-    private void Start()
+    void Start()
     {
-
-        ChangeLevel();
+        if (PhotonNetwork.IsMasterClient)
+        {
+            int index = Random.Range(0, landLevels.Length);
+            photonView.RPC("RPC_ActivateLevel", RpcTarget.AllBuffered, index);
+        }
     }
+
+
 
     [PunRPC]
-    public void ChangeLevel()
+    public void RPC_ActivateLevel(int index)
     {
-        level = GameObject.FindGameObjectWithTag("Level");
-        if (level == null)
-        {
-            //this means there is no level yet
-            level = levels[Random.Range(0, levels.Length)];
-            level.SetActive(true);
-        }
-        //check if there are any levels active rn
+        for (int i = 0; i < landLevels.Length; i++)
+            landLevels[i].SetActive(i == index);
 
+        Debug.Log("Activated level index: " + index);
     }
-
 }
