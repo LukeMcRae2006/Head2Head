@@ -1,7 +1,6 @@
 using UnityEngine;
 using Photon.Pun;
 using UnityEngine.SceneManagement;
-using Photon.Realtime;
 
 public class ConnectToServer : MonoBehaviourPunCallbacks
 {
@@ -19,12 +18,5 @@ public class ConnectToServer : MonoBehaviourPunCallbacks
     public override void OnJoinedLobby()
     {
         SceneManager.LoadScene("Lobby");
-    }
-
-    public override void OnDisconnected(DisconnectCause cause)
-    {
-        base.OnDisconnected(cause);
-        PhotonNetwork.LoadLevel("Lobby");
-
     }
 }

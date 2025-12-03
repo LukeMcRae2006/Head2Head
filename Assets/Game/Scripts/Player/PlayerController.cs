@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     public GameObject[] limbs; //limbs are like the head and stuff
 
-    public InputActionReference leaveInput;
+
 
     private enum PlayerState
     {
@@ -70,15 +70,6 @@ public class PlayerController : MonoBehaviour, IDamageable
                 break;
         }
 
-        if (leaveInput.action.IsPressed())
-        {
-            if (view.IsMine)
-            {
-                PhotonNetwork.LeaveRoom();
-            }
-        }
-
-
 
     }
 
@@ -92,11 +83,7 @@ public class PlayerController : MonoBehaviour, IDamageable
         {
             limbs[i].SetActive(false);
         }
-
-        if (view.IsMine)
-        {
-            PhotonNetwork.LeaveRoom();
-        }
+        PhotonNetwork.LoadLevel("Lobby");
 
 
 
